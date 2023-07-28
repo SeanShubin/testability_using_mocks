@@ -42,6 +42,8 @@ defmodule HelloAppTest do
       ]
     ) do
       HelloApp.main()
+      assert_called IO.puts("Hello, world!")
+      assert_called IO.puts("Took 234 microseconds")
     end
   end
 end
