@@ -2,6 +2,8 @@ defmodule HelloAppTest do
   use ExUnit.Case
   import Mock
 
+  # https://hexdocs.pm/mock/Mock.html
+  # https://github.com/jjh42/mock
   test "say hello to world" do
     monotonic_time_results = [1000, 1234]
     argv_result = ["the-file.txt"]
@@ -21,8 +23,8 @@ defmodule HelloAppTest do
           [],
           [
             puts: fn
-              ("Hello, world!")->"Hello, world!"
-              ("Took 234 microseconds")->"Took 234 microseconds"
+              ("Hello, world!")->:ok
+              ("Took 234 microseconds")->:ok
               (unexpected) -> flunk("unexpected call: IO.puts(#{inspect unexpected})")
             end
           ]
